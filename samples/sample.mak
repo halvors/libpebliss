@@ -8,17 +8,15 @@ ifdef PE_DEBUG
 CXXFLAGS  += -g -O0
 endif
 
-all: $(OUTDIR)$(NAME)
+all: $(NAME)
 
 clean:
 	rm -f $(NAME) *.o
 	rm -f $(OUTDIR)$(NAME)
 
 $(NAME): main.o
-	$(CXX) -Wall $^ -lpebliss -L../../lib -o $(NAME)
+	$(CXX) -Wall $^ -lpebliss -L../../lib -o $(OUTDIR)$(NAME)
 
 main.o: $(LIBPATH)
 
-$(OUTDIR)$(NAME): $(NAME)
-	cp -d $(NAME) $(OUTDIR)
 
