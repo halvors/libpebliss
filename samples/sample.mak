@@ -15,7 +15,7 @@ clean:
 	rm -f $(OUTDIR)$(NAME)
 
 $(NAME): main.o
-	$(CXX) -Wall $^ -lpebliss -L../../lib -o $(OUTDIR)$(NAME) -liconv
+	$(CXX) -Wall $^ -lpebliss -L../../lib -liconv -o $(OUTDIR)$(NAME)
 
 main.o: $(LIBPATH)
 
