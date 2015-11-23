@@ -3,3 +3,5 @@
 *.swp
 samples/out/
 tests/bin/
+Debug/
+Release/
