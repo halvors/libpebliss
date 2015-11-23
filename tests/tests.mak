@@ -8,6 +8,15 @@ ifdef PE_DEBUG
 CXXFLAGS  += -g -O0
 endif
 
+LDFLAGS = -L../../lib
+LIBS = -lpebliss
+ifneq ($(OS), Windows_NT)
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Darwin)
+		LIBS += -liconv
+	endif
+endif
+
 all: $(NAME)
 
 clean:
@@ -15,7 +24,7 @@ clean:
 	rm -f $(OUTDIR)$(NAME)
 
 $(NAME): main.o
-	$(CXX) -Wall $^ -lpebliss -L../../lib -liconv -o ${OUTDIR}$(NAME)
+	$(CXX) -Wall $^ $(LIBS) $(LDFLAGS) -o ${OUTDIR}$(NAME)
 
 main.o: $(LIBPATH)
 

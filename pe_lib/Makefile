@@ -13,7 +13,10 @@ clean:
 	rm -f $(OBJS) lib$(LIBNAME).a
 	rm -rf ../lib
 
-lib$(LIBNAME).a: $(OBJS)
+lib$(LIBNAME).a: $(OBJS) $(LIBPATH)
 	ar -cvr $(LIBPATH)lib$(LIBNAME).a $(OBJS)
 	ranlib $(LIBPATH)lib$(LIBNAME).a
+
+$(LIBPATH):
+	mkdir -p $(LIBPATH)
 
