@@ -1,6 +1,6 @@
 libpebliss
 ---
-### Evolved from [portable-executable-library](https://code.google.com/p/portable-executable-library)
+Evolved from [portable-executable-library](https://code.google.com/p/portable-executable-library)
 **Original Author:** rukaimi (kaimi.ru)
 Thanks to his really great work!
 
@@ -8,18 +8,19 @@ Thanks to his really great work!
 Cross-Platform [PE](https://en.wikipedia.org/wiki/Portable_Executable)(Portable Executable) Manipulating Library
 * C++
 * Compatibility
-  * Windows, tested on MSVC++ 2008
-  * Linux, tested on GCC 4.4
   * Little-endian systems only, might not support big-endian ones.
+  * Windows, tested on Visual Studio 2013 Express
+  * Linux, tested on GCC 4.8.4, with some unit-test failures.
+  * OSX, tested on LLVM 7.0.0, with some unit-test failures
+
 * Useful usage samples and well unit-tested.
 
 ### TODO
 
 * Unit-test
-  * do on Windows
-  * fix some on Linux
-  * fix some on OSX
+  * fix failures on Linux
+  * fix failures on OSX
 
 * Update to Visual Studio 2013 Express
-  * use [CMake](http://cmake.org) instead
+  * use [CMake](http://cmake.org) instead ???
 
