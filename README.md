@@ -21,4 +21,5 @@ Cross-Platform [PE](https://en.wikipedia.org/wiki/Portable_Executable)(Portable 
   * fix some on OSX
 
 * Update to Visual Studio 2013 Express
+  * use [CMake](http://cmake.org) instead
 
