@@ -22,6 +22,11 @@ std::streamoff pe_utils::get_file_size(std::istream& file)
 	return filesize;
 }
 
+bool pe_utils::is_little_endian() {
+    uint16_t i = 1;
+    return *(char*)&i;
+}
+
 #ifndef PE_BLISS_WINDOWS
 const u16string pe_utils::to_ucs2(const std::wstring& str)
 {
