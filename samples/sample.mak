@@ -20,7 +20,7 @@ endif
 all: $(NAME)
 
 clean:
-	rm -f $(NAME) *.o
+	rm -f *.o
 	rm -f $(OUTDIR)$(NAME)
 
 $(NAME): main.o

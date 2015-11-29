@@ -1,26 +1,29 @@
-# portable-executable-library
-Automatically exported from code.google.com/p/portable-executable-library
+libpebliss
+---
+Evolved from [portable-executable-library](https://code.google.com/p/portable-executable-library)
 
-**Author:** rukaimi (kaimi.ru)
+**Original Author:** rukaimi (kaimi.ru)
 
-Just forked this to preserve it from the Google Code shutdown. 
+Thanks to his really great work!
 
-# LICENSE
 
-See [pe_lib/readme-en.txt](pe_lib/readme-en.txt). It's translated from [pe_lib/readme.txt](pe_lib/readme.txt), not the original content.
+### PE Bliss
+Cross-Platform [PE](https://en.wikipedia.org/wiki/Portable_Executable)(Portable Executable) Manipulating Library
+* C++
+* Compatibility
+  * Little-endian systems only, might not support big-endian ones.
+  * Windows, tested on Visual Studio 2013 Express
+  * Linux, tested on GCC 4.8.4, with some unit-test failures.
+  * OSX, tested on LLVM 7.0.0, with some unit-test failures
 
-```
-Free to use, modify, and distribute.
-```
-So, it's in MIT-like license.
+* Useful usage samples and well unit-tested.
 
-I make no claims to rights over this project. Awesome library though.
+### TODO
 
-# PE Bliss
+* Unit-test
+  * fix failures on Linux
+  * fix failures on OSX
 
-Cross-Platform Portable Executable C++ Library
-Compatible with Windows and Linux (tested on MSVC++ 2008, 2010, GCC 4.4 on Linux). Currently tested on little-endian systems only and might not support big-endian ones.
+* Update to Visual Studio 2013 Express
+  * use [CMake](http://cmake.org) instead ???
 
-Library has many usage samples and is well unit-tested.
-
-Library is free to use in both commertial and non-commertial projects. You can also modify and redistribute it. If you are using it, please, do not forget to specify the name or other copyright of PE Bliss somewhere in the description of your project.
