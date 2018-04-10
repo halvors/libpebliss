@@ -1,14 +1,14 @@
 #pragma once
-#include <string>
-#include <vector>
-#include <istream>
-#include <ostream>
-#include <map>
 #include "pe_exception.h"
+#include "pe_properties.h"
+#include "pe_section.h"
 #include "pe_structures.h"
 #include "utils.h"
-#include "pe_section.h"
-#include "pe_properties.h"
+#include <istream>
+#include <map>
+#include <ostream>
+#include <string>
+#include <vector>
 
 //Please don't remove this information from header
 //PEBliss 1.0.0
@@ -459,6 +459,7 @@ public: //IMAGE SECTIONS
 	//Returns true if sectios "s" is already attached to this PE file
 	bool section_attached(const section& s) const;
 
+	bool is_rva_internal(uint32_t rva);
 
 public: //IMAGE
 	//Returns PE type (PE or PE+) from pe_type enumeration (minimal correctness checks)

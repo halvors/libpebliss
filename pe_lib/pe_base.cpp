@@ -499,6 +499,19 @@ bool pe_base::section_attached(const section& s) const
 	return sections_.end() != std::find_if(sections_.begin(), sections_.end(), section_ptr_finder(s));
 }
 
+bool pe_base::is_rva_internal(uint32_t rva)
+{
+	//Search for section
+	for (section_list::const_iterator i = sections_.begin(); i != sections_.end(); ++i)
+	{
+		const section& s = *i;
+		//Return section if found
+		if (rva >= s.get_virtual_address() && rva < s.get_virtual_address() + s.get_aligned_virtual_size(get_section_alignment()))
+			return true;
+	}
+	return false;
+}
+
 //Returns true if directory exists
 bool pe_base::directory_exists(uint32_t id) const
 {
