@@ -4,6 +4,7 @@
 samples/out/
 tests/bin/
 
+.vs
 
 *.exe
 Debug/
