@@ -12,3 +12,5 @@ Release/
 *.sdf
 *.opensdf
 *.suo
+
+*.user
