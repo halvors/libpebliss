@@ -3,6 +3,7 @@
 *.swp
 samples/out/
 tests/bin/
+.vs
 *.exe
 Debug/
 Release/
@@ -12,5 +13,5 @@ Release/
 .vs
 lib/
 pe_lib.vcxproj
-pe_lib.vcxproj.*
 workspace.sln
+*.user
