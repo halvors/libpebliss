@@ -17,9 +17,12 @@ workspace "workspace"
     -- Linux uses a buildoption to allow for more
     -- up to date standards (2a)
     filter {"system:windows"}
-        toolset "msc-v141"
+        toolset "msc-v142"
         cppdialect "C++17"
-        buildoptions{ "--driver-mode=cl" } -- for compile commands
+        symbolspath "$(OutDir)$(TargetName).pdb"		
+        symbols "On"
+	staticruntime "on"
+        flags {"MultiProcessorCompile"}
     filter {"system:linux"}
         toolset "clang" -- prefer clang over gcc
         buildoptions "-std=c++17"
@@ -31,7 +34,6 @@ workspace "workspace"
         optimize "Off"
 
         filter {"system:windows"}
-            symbols "Full"
         filter {"system:linux"}
             symbols "On"
             buildoptions "-g3" -- need this for gdb
@@ -41,15 +43,15 @@ workspace "workspace"
     filter {"configurations:Release"}
         defines { "NDEBUG" }
         optimize "Full"
-        symbols "Off"
         flags {"LinkTimeOptimization"}
+        runtime "Release"
         
     filter {}
 
     project "pe_lib"
         kind "StaticLib"
         language "C++"
-        targetdir "bin/%{cfg.buildcfg}"
+        targetdir "lib/%{cfg.buildcfg}_%{cfg.platform}"
         
         includedirs { "pe_lib" }
         files { "pe_lib/**.h", "pe_lib/**.cpp" }
