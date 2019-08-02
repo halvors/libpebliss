@@ -1,6 +1,7 @@
 QT -= gui
 
 TARGET = pebliss
+DESTDIR = $$PWD/../lib
 TEMPLATE = lib
 CONFIG += \
         c++17 \
