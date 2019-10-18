@@ -66,12 +66,12 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 	version_data.resize(total_version_info_length);
 
 	//Create root version block
-	version_info_block root_block = {0};
+    version_info_block root_block;
 	root_block.ValueLength = sizeof(vs_fixedfileinfo);
 	root_block.Length = static_cast<uint16_t>(total_version_info_length);
 
 	//Fill fixed file info
-	vs_fixedfileinfo fixed_info = {0};
+    vs_fixedfileinfo fixed_info;
 	fixed_info.dwFileDateLS = file_info.get_file_date_ls();
 	fixed_info.dwFileDateMS = file_info.get_file_date_ms();
 	fixed_info.dwFileFlags = file_info.get_file_flags();
@@ -101,7 +101,7 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 	if(!string_values.empty())
 	{
 		//Create string file info root block
-		version_info_block string_file_info_block = {0};
+        version_info_block string_file_info_block;
 		string_file_info_block.Type = 1; //Block type is string
 		memcpy(&version_data[data_ptr], &string_file_info_block, sizeof(version_info_block) - sizeof(uint16_t));
 		//We will calculate its length later
@@ -113,7 +113,7 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 		data_ptr += SizeofStringFileInfo;
 
 		//Create string table root block (child of string file info)
-		version_info_block string_table_block = {0};
+        version_info_block string_table_block;
 		string_table_block.Type = 1; //Block type is string
 
 		for(lang_string_values_map::const_iterator table_it = string_values.begin(); table_it != string_values.end(); ++table_it)
@@ -146,7 +146,7 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 			}
 
 			//Create string block (child of string table block)
-			version_info_block string_block = {0};
+            version_info_block string_block;
 			string_block.Type = 1; //Block type is string
 			for(string_values_map::const_iterator it = values.begin(); it != values.end(); ++it)
 			{
@@ -207,7 +207,7 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 	if(!translations.empty())
 	{
 		//Create root var file info block
-		version_info_block var_file_info_block = {0};
+        version_info_block var_file_info_block;
 		var_file_info_block.Type = 1; //Type of block is string
 		//Write block header
 		memcpy(&version_data[data_ptr], &var_file_info_block, sizeof(version_info_block) - sizeof(uint16_t));
@@ -220,7 +220,7 @@ void resource_version_info_writer::set_version_info(const file_version_info& fil
 		data_ptr += SizeofVarFileInfoAligned;
 
 		//Create root translation block (child of var file info block)
-		version_info_block translation_block = {0};
+        version_info_block translation_block;
 		//Write block header
 		memcpy(&version_data[data_ptr], &translation_block, sizeof(version_info_block) - sizeof(uint16_t));
 		//We will calculate its length later

@@ -251,7 +251,7 @@ const image_directory rebuild_tls_base(pe_base& pe, const tls_info& info, sectio
 		raw_data.resize(needed_size + tls_data_pos); //Expand section raw data
 
 	//Create and fill TLS structure
-	typename PEClassType::TLSStruct tls_struct = {0};
+    typename PEClassType::TLSStruct tls_struct;
 	
 	typename PEClassType::BaseSize va;
 	if(info.get_raw_data_start_rva())

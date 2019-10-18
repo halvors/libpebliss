@@ -39,7 +39,7 @@ const std::string resource_bitmap_reader::get_bitmap_by_id(uint32_t id, uint32_t
 const std::string resource_bitmap_reader::create_bitmap(const std::string& resource_data)
 {
 	//Create bitmap file header
-	bitmapfileheader header = {0};
+    bitmapfileheader header;
 	header.bfType = 0x4d42; //Signature "BM"
 	header.bfOffBits = sizeof(bitmapfileheader) + sizeof(bitmapinfoheader); //Offset to bitmap bits
 	header.bfSize = static_cast<uint32_t>(sizeof(bitmapfileheader) + resource_data.length()); //Size of bitmap

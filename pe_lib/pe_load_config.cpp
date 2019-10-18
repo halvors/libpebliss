@@ -424,7 +424,7 @@ const image_directory rebuild_image_config_base(pe_base& pe, const image_config_
 		raw_data.resize(needed_size + image_config_data_pos); //Expand section raw data
 
 	//Create and fill Image Config structure
-	typename PEClassType::ConfigStruct image_config_section_struct = {0};
+    typename PEClassType::ConfigStruct image_config_section_struct;
 	image_config_section_struct.Size = sizeof(image_config_section_struct);
 	image_config_section_struct.TimeDateStamp = info.get_time_stamp();
 	image_config_section_struct.MajorVersion = info.get_major_version();

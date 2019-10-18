@@ -260,7 +260,7 @@ const image_directory rebuild_bound_imports(pe_base& pe, const bound_import_modu
 		for(bound_import::ref_list::const_iterator ref_it = refs.begin(); ref_it != refs.end(); ++ref_it)
 		{
 			const bound_import_ref& ref = *ref_it;
-			image_bound_forwarder_ref ref_descriptor = {0};
+            image_bound_forwarder_ref ref_descriptor;
 			ref_descriptor.OffsetModuleName = static_cast<uint16_t>(current_pos_for_strings - directory_pos);
 			ref_descriptor.TimeDateStamp = ref.get_timestamp();
 

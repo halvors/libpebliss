@@ -36,7 +36,7 @@ void resource_cursor_icon_writer::add_icon(const std::string& icon_file, const r
 	}
 
 	std::string icon_group_data;
-	ico_header* info = 0;
+    ico_header* info = nullptr;
 
 	if(group_icon_info)
 	{
@@ -73,7 +73,7 @@ void resource_cursor_icon_writer::add_icon(const std::string& icon_file, const r
 	for(uint16_t i = 0; i != icon_header->Count; ++i)
 	{
 		const icondirentry* icon_entry = reinterpret_cast<const icondirentry*>(&icon_file[sizeof(ico_header) + i * sizeof(icondirentry)]);
-		icon_group group = {0};
+        icon_group group;
 
 		//Fill icon resource header
 		group.BitCount = icon_entry->BitCount;
@@ -192,7 +192,7 @@ void resource_cursor_icon_writer::add_cursor(const std::string& cursor_file, con
 	}
 
 	std::string cursor_group_data;
-	cursor_header* info = 0;
+    cursor_header* info = nullptr;
 
 	if(group_cursor_info)
 	{
@@ -229,7 +229,7 @@ void resource_cursor_icon_writer::add_cursor(const std::string& cursor_file, con
 	for(uint16_t i = 0; i != cur_header->Count; ++i)
 	{
 		const cursordirentry* cursor_entry = reinterpret_cast<const cursordirentry*>(&cursor_file[sizeof(cursor_header) + i * sizeof(cursordirentry)]);
-		cursor_group group = {0};
+        cursor_group group;
 
 		//Fill cursor resource header
 		group.Height = cursor_entry->Height * 2;

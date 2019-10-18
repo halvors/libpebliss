@@ -239,7 +239,7 @@ const exported_functions_list get_exported_functions(const pe_base& pe, export_i
 //Returns array of exported functions
 const exported_functions_list get_exported_functions(const pe_base& pe)
 {
-	return get_exported_functions(pe, 0);
+    return get_exported_functions(pe, nullptr);
 }
 
 //Returns array of exported functions and information about export
@@ -261,7 +261,7 @@ const exported_functions_list get_exported_functions(const pe_base& pe, export_i
 	//Returned exported functions info array
 	std::vector<exported_function> ret;
 
-	if(pe.has_exports())
+    if (pe.has_exports())
 	{
 		//Check the length in bytes of the section containing export directory
 		if(pe.section_data_length_from_rva(pe.get_directory_rva(image_directory_entry_export),
@@ -575,7 +575,7 @@ const image_directory rebuild_exports(pe_base& pe, const export_info& info, expo
 
 	{
 		//Create export directory and fill it
-		image_export_directory dir = {0};
+        image_export_directory dir;
 		dir.Characteristics = info.get_characteristics();
 		dir.MajorVersion = info.get_major_version();
 		dir.MinorVersion = info.get_minor_version();
